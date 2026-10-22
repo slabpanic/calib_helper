@@ -105,7 +105,7 @@ class JakaRobot:
         if not self._connected:
             self.connect()
 
-        ret = self._robot.get_actual_tool_position()
+        ret = self._robot.get_actual_tcp_position()
         if not _ok(ret):
             raise JakaError(f"读取工具位姿失败: {ret}")
         pose = [float(value) for value in ret[1]]
